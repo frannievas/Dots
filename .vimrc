@@ -1,10 +1,43 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+"==========================================================="
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+"==========================================================="
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+"============================================================================================"
+
 set encoding=utf-8
 :set expandtab
-" These commands are necessary for plugins to work
-filetype off                       " plugin-related
-call pathogen#infect()             " plugin-related
-call pathogen#helptags()           " plugin-related
-filetype plugin on                 " plugin-related
+filetype plugin on
+" Comment"
+let mapleader=","
+let g:NERDCustomDelimiters = { 'lua': { 'left': '--[[','right': '--]]' } }
+
 
 " These commands make vim less ugly
 syntax on                          " Turn the syntax on
@@ -25,14 +58,20 @@ set wrap!                          " Autowraping lines
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType c setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType cpp setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType xml setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType tex setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType php setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType lua setlocal expandtab shiftwidth=2 tabstop=2
 
 " Copy and paste commands
 noremap <C-y> "+y
 noremap <C-p> "+gP
 noremap <C-k> ggVG"+y
 noremap <C-j> ggVG"+x
+nnoremap L  :tabnext<CR>
+nnoremap H  :tabprev<CR>
+
 
 " O and o should not work in that bizarre way
 map o o<C-c>
