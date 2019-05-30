@@ -9,7 +9,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -36,8 +37,6 @@ set encoding=utf-8
 filetype plugin on
 " Comment"
 let mapleader=","
-let g:NERDCustomDelimiters = { 'lua': { 'left': '--[[','right': '--]]' } }
-
 
 " These commands make vim less ugly
 syntax on                          " Turn the syntax on
@@ -60,18 +59,13 @@ autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType c setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType cpp setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType xml setlocal expandtab shiftwidth=2 tabstop=2
-autocmd FileType tex setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType tex setlocal expandtab shiftwidth=2 tabstop=2 nofoldenable
 autocmd FileType php setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType lua setlocal expandtab shiftwidth=2 tabstop=2
 
-" Copy and paste commands
-noremap <C-y> "+y
-noremap <C-p> "+gP
-noremap <C-k> ggVG"+y
-noremap <C-j> ggVG"+x
+" Move between tabs
 nnoremap L  :tabnext<CR>
 nnoremap H  :tabprev<CR>
-
 
 " O and o should not work in that bizarre way
 map o o<C-c>
@@ -83,3 +77,6 @@ match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+
+"noremap <Leader>f :NERDTreeToggle<Enter>
+
